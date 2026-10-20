@@ -1,23 +1,15 @@
+#include "zygisk.hpp"
 #include <android/log.h>
-#include <dlfcn.h>
-#include <zygisk.h>
-#include <string>
 
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "openfg", __VA_ARGS__)
 
-struct OpenFGModule : zygisk::ModuleBase {
+class OpenFGModule : public zygisk::ModuleBase {
+public:
     void onLoad(zygisk::Api *api, JNIEnv *env) override { LOGI("loaded"); }
-    void preAppSpecialize(zygisk::Api *api, JNIEnv *env, AppConfig *cfg) override {
-        // TODO: read /data/adb/openfg/packages.list; enable hooks only for selected pkgs
-    }
-    void postAppSpecialize(zygisk::Api *api, JNIEnv *env, const AppConfig *cfg) override {
-        // TODO: install Dobby hooks on BufferQueueProducer::queueBuffer
-    }
+    void preAppSpecialize(zygisk::Api *api, JNIEnv *env, zygisk::AppSpecializeArgs_v4 *args) override {}
+    void postAppSpecialize(zygisk::Api *api, JNIEnv *env, const zygisk::AppSpecializeArgs_v4 *args) override {}
 };
 
 REGISTER_ZYGISK_MODULE(OpenFGModule)
-REGISTER_ZYGISK_COMPANION(companion_entry)
 
-extern "C" void companion_entry(int fd) {
-    // TODO: read config from Zygisk companion channel
-}
+extern "C" void companion_entry(int fd) {}
