@@ -8,7 +8,7 @@ class OpenFGModule : public zygisk::ModuleBase {
 public:
     void onLoad(zygisk::Api *api, JNIEnv *env) override { LOGI("loaded"); }
     void preAppSpecialize(zygisk::AppSpecializeArgs *args) override {}
-    void postAppSpecialize(zygisk::Api *api, JNIEnv *env, const zygisk::AppSpecializeArgs *args) override {}
+    void postAppSpecialize(const zygisk::AppSpecializeArgs *args) override {}
 };
 
 REGISTER_ZYGISK_MODULE(OpenFGModule)
