@@ -8,9 +8,9 @@ jobs:
       - uses: nttld/setup-ndk@v1
         with:
           ndk-version: r26d
-      - run: |
-          mkdir -p module/obj
-          $ANDROID_NDK_HOME/ndk-build -C module NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=Android.mk 2>&1 | tail -20 || echo "configure Android.mk first"
+      - name: build zygisk module
+        run: |
+          $ANDROID_NDK_HOME/ndk-build -C module NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=Android.mk
   build-app:
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +20,5 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: gradle/gradle-build-action@v3
-      - run: cd app && ./gradlew assembleDebug
+      - name: build app
+        run: gradle assembleDebug
