@@ -12,11 +12,11 @@ class RootConfig {
         // Write to /data/user/*/packageName/files/ like OpenFG does
         val cmd = """
             wrote=0
-            for d in /data/user/*/$packageName; do
+            for d in /data/user/*/\$packageName; do
                 [ -d "\$d" ] || continue
                 fdir="\$d/files"
                 mkdir -p "\$fdir"
-                echo -n '$value' > "\$fdir/\$key"
+                echo -n '\$value' > "\$fdir/\$key"
                 chmod 644 "\$fdir/\$key"
                 wrote=1
             done
