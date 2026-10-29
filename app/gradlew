@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"
+#!/usr/bin/env sh
+GRADLE_HOME="$(pwd)/gradle-8.5/gradle-8.5"
+exec "$GRADLE_HOME/bin/gradle" "$@"

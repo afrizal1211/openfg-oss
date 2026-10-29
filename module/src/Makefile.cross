@@ -1,0 +1,6 @@
+CXX = /usr/bin/aarch64-linux-gnu-g++
+CXXFLAGS = -O2 -fPIC -shared -fvisibility=hidden
+LDFLAGS = -llog -landroid -lEGL -lGLESv2
+
+all:
+	$(CXX) $(CXXFLAGS) -o libopenfg_clone.so main.cpp $(LDFLAGS)
