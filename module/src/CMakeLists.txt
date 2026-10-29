@@ -1,8 +1,25 @@
 cmake_minimum_required(VERSION 3.22.1)
 project(openfg_clone)
 
-# Define paths
-set(DOBBY_PATH ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dobby)
+# Dobby sources - focused on arm64
+set(DOBBY_SOURCES
+    third_party/dobby_src/dobby.cpp
+    third_party/dobby_src/Backend/UserMode/PlatformUtil/Linux/ProcessRuntime.cc
+    third_party/dobby_src/Backend/UserMode/UnifiedInterface/platform-posix.cc
+    third_party/dobby_src/Backend/UserMode/UnifiedInterface/semaphore.cc
+    third_party/dobby_src/Backend/UserMode/Thread/PlatformThread.cc
+    third_party/dobby_src/Backend/UserMode/Thread/platform-thread-posix.cc
+    third_party/dobby_src/TrampolineBridge/Trampoline/trampoline_arm64.cc
+    third_party/dobby_src/TrampolineBridge/ClosureTrampolineBridge/arm64/ClosureTrampolineARM64.cc
+    third_party/dobby_src/TrampolineBridge/ClosureTrampolineBridge/arm64/closure_bridge_arm64.cc
+    third_party/dobby_src/TrampolineBridge/ClosureTrampolineBridge/arm64/helper_arm64.cc
+    third_party/dobby_src/InstructionRelocation/arm64/InstructionRelocationARM64.cc
+    third_party/dobby_src/core/assembler/assembler-arm.cc
+    third_party/dobby_src/core/codegen/codegen-arm.cc
+)
+
+add_library(dobby STATIC ${DOBBY_SOURCES})
+target_include_directories(dobby PUBLIC third_party/dobby/include)
 
 add_library(openfg_clone SHARED
     main.cpp
@@ -14,14 +31,13 @@ add_library(openfg_clone SHARED
     interpolation.cpp
 )
 
-# Include directories
 target_include_directories(openfg_clone PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${DOBBY_PATH}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dobby/include
 )
 
-# Link libraries
 target_link_libraries(openfg_clone
+    dobby
     log
     android
     EGL
@@ -30,4 +46,3 @@ target_link_libraries(openfg_clone
     vulkan
     z
 )
-
