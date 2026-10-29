@@ -19,7 +19,11 @@ set(DOBBY_SOURCES
 )
 
 add_library(dobby STATIC ${DOBBY_SOURCES})
-target_include_directories(dobby PUBLIC third_party/dobby/include)
+# Add both the standard include and the src directory to resolve "dobby/types.h"
+target_include_directories(dobby PUBLIC 
+    third_party/dobby/include
+    third_party/dobby_src
+)
 
 add_library(openfg_clone SHARED
     main.cpp
@@ -34,6 +38,7 @@ add_library(openfg_clone SHARED
 target_include_directories(openfg_clone PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dobby/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dobby_src
 )
 
 target_link_libraries(openfg_clone
