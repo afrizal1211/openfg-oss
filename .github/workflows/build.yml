@@ -29,7 +29,7 @@ jobs:
       - name: Build Native Module
         run: |
           cd module/src
-          $NDK_PATH/ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=Android.mk NDK_APPLICATION_MK=Application.mk
+          $NDK_PATH/ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=Android.mk NDK_APPLICATION_MK=Application.mk 2>&1 | tee build_log.txt
           mkdir -p ../zygisk
           cp libs/arm64-v8a/libopenfg_clone.so ../zygisk/arm64-v8a.so
           cp libs/armeabi-v7a/libopenfg_clone.so ../zygisk/armeabi-v7a.so
