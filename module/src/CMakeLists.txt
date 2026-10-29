@@ -19,7 +19,7 @@ set(DOBBY_SOURCES
 )
 
 add_library(dobby STATIC ${DOBBY_SOURCES})
-# Add both the standard include and the src directory to resolve "dobby/types.h" and "TINYSTL/vector.h"
+# Add both the standard include and the src directory to resolve "dobby/types.h", "TINYSTL/vector.h", and "logging/logging.h"
 target_include_directories(dobby PUBLIC 
     third_party/dobby/include
     third_party/dobby_src
