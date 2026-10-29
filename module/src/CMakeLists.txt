@@ -1,19 +1,33 @@
 cmake_minimum_required(VERSION 3.22.1)
 project(openfg_clone)
 
-add_library(${PROJECT_NAME} SHARED
+# Define paths
+set(DOBBY_PATH ${CMAKE_CURRENT_SOURCE_DIR}/third_party/dobby)
+
+add_library(openfg_clone SHARED
     main.cpp
+    hooks.cpp
+    hooks_vulkan.cpp
+    config.cpp
+    frame_processor.cpp
+    fsr.cpp
+    interpolation.cpp
 )
 
-find_library(log-lib log)
-find_library(android-lib android)
-find_library(EGL-lib EGL)
-find_library(GLESv2-lib GLESv2)
+# Include directories
+target_include_directories(openfg_clone PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${DOBBY_PATH}/include
+)
 
-target_link_libraries(${PROJECT_NAME}
-    ${log-lib}
-    ${android-lib}
-    ${EGL-lib}
-    ${GLESv2-lib}
+# Link libraries
+target_link_libraries(openfg_clone
+    log
+    android
+    EGL
+    GLESv3
+    dl
+    vulkan
     z
 )
+
