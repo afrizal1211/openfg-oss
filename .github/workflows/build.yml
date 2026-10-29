@@ -51,3 +51,4 @@ jobs:
           path: |
             app/build/outputs/apk/debug/*.apk
             module/openfg_module.zip
+            module/src/build_log.txt
