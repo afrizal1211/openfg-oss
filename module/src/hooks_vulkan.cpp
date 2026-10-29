@@ -1,4 +1,5 @@
 #include <dlfcn.h>
+#include <vulkan/vulkan.h>
 #include <android/log.h>
 
 #define LOG_TAG "OpenFG_VK"
