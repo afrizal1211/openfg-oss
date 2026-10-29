@@ -16,8 +16,8 @@ class RootConfig {
                 [ -d "\$d" ] || continue
                 fdir="\$d/files"
                 mkdir -p "\$fdir"
-                echo -n '$value' > "\$fdir/$key"
-                chmod 644 "\$fdir/$key"
+                echo -n '$value' > "\$fdir/\$key"
+                chmod 644 "\$fdir/\$key"
                 wrote=1
             done
             [ "\$wrote" = 1 ]
