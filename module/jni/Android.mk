@@ -4,6 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := dobby
 LOCAL_SRC_FILES := third_party/dobby_src/dobby.cpp
 # This is simplified - real Dobby build is complex
+LOCAL_CFLAGS := -I$(LOCAL_PATH)/third_party/dobby_src
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
