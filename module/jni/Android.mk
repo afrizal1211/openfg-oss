@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := dobby
-LOCAL_SRC_FILES := third_party/dobby_src/source/dobby.cpp
+LOCAL_SRC_FILES := third_party/dobby_src/dobby.cpp
 # This is simplified - real Dobby build is complex
 include $(BUILD_STATIC_LIBRARY)
 
