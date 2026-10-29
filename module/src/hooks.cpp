@@ -1,5 +1,6 @@
 #include "hooks.h"
 #include <dlfcn.h>
+#include <unistd.h>
 #include <android/log.h>
 #include "third_party/dobby/include/dobby.h"
 
